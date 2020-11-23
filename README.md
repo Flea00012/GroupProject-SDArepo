@@ -4,11 +4,6 @@
 
 Sudha,Tristan,Akans,Smitha,Pooja,Richa, Lee
 
+## Planning
 
-I made more changes 2
-
-I just made a change on branch2
-
-change again
-
-
+The group is planning the project and the overall concept now
