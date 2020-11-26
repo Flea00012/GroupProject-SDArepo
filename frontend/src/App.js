@@ -10,8 +10,8 @@ import Navbar from './components/layout/Navbar';
 // Import pages
 import LoginPage from './components/auth/LoginPage';
 import HomePage from './components/home/HomePage';
-import PostsPage from './components/posts/PostsPage';
-import ChatPage from './components/chat/ChatPage';
+// import PostsPage from './components/posts/PostsPage';
+// import ChatPage from './components/chat/ChatPage';
 import AssignmentsPage from './components/assignments/AssignmentsPage';
 import CoursePage from './components/courses/CoursePage';
 import LecturesPage from './components/lectures/LecturesPage';

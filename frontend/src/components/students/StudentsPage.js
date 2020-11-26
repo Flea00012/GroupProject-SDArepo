@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+
+import Students from './Students.jsx';
 
 function StudentsPage() {
     return (
