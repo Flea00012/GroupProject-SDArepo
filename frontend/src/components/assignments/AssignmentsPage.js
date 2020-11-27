@@ -133,108 +133,118 @@ function AssignmentsPage({match}) {
 
             <div className="card-body text-dark border">
             <div className="question">
-             <div className="form-group">
+             <div>
             
-            <label>Question 1:</label>
-            <textarea
+            
+            <textarea 
                             type="text"
                             value={question1}
                             className="form-control"
+                            placeholder="Question 1"
                             onChange={e => setQuestion1(e.target.value)} />
             
             </div>
 
             <div>
-            <label>Question 2:</label>
+            
             <textarea
                             type="text"
                             value={question2}
                             className="form-control"
+                            placeholder="Question 2"
                             onChange={e => setQuestion2(e.target.value)} />
             
             </div>
 
             <div>
-            <label>Question 3:</label>
+            
             <textarea
                             type="text"
                             value={question3}
                             className="form-control"
+                            placeholder="Question 3"
                             onChange={e => setQuestion3(e.target.value)} />
             
             </div>
 
             <div>
-            <label>Question 4:</label>
+           
             <textarea
                             type="text"
                             value={question4}
                             className="form-control"
+                            placeholder="Question 4"
                             onChange={e => setQuestion4(e.target.value)} />
             
             </div>
 
             <div>
-            <label >Question 5:</label>
+            
             <textarea
                             type="text"
                             value={question5}
                             className="form-control"
+                            placeholder="Question 5"
                             onChange={e => setQuestion5(e.target.value)} />
             
             
             </div>
 
             <div>
-            <label >Question 6:</label>
+            
             <textarea
                             type="text"
                             value={question6}
                             className="form-control"
+                            placeholder="Question 6"
                             onChange={e => setQuestion6(e.target.value)} />
             
             
             </div>
 
             <div>
-            <label >Question 7:</label>
+            
             <textarea
                             type="text"
                             value={question7}
                             className="form-control"
+                            placeholder="Question 7"
                             onChange={e => setQuestion7(e.target.value)} />
             
             
             </div>
 
             <div>
-            <label >Question 8:</label>
+            
             <textarea
                             type="text"
                             value={question8}
                             className="form-control"
+                            placeholder="Question 8"
                             onChange={e => setQuestion8(e.target.value)} />
             
             
             </div>
 
             <div>
-            <label >Question 9:</label>
+            
             <textarea
                             type="text"
                             value={question9}
                             className="form-control"
+                            placeholder="Question 9"
                             onChange={e => setQuestion9(e.target.value)} />
             
             
             </div>
 
             <div>
-            <label >Question 10:</label>
+
             <textarea
                             type="text"
                             value={question10}
                             className="form-control"
+                            placeholder="Question 10"
                             onChange={e => setQuestion10(e.target.value)} />
             
             
