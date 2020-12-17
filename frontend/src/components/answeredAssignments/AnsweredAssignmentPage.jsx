@@ -1,55 +1,31 @@
-import React, {useEffect, useState} from "react";
-import AnsAssApi from '../../api/AnsweredAssignmentsApi';
-import AnsAssForm from '../answeredAssignments/AnsweredAssignmentForm';
-import AssApi from '../../api/AssignmentsApi';
-
+import React, { useEffect, useState } from "react";
+import AnsAssForm from "../answeredAssignments/AnsweredAssignmentForm";
+import AssApi from "../../api/AssignmentsApi";
 
 export default function AnsweredAssignmentPage() {
-   
-   
+  const [assignments, setAssignments] = useState([]);
 
-    //Rest API post call to create Answered Assignment
-    /*const createAnsweredAssignment = (answers) => {
-        console.log("Inside createAnsweredAssignment" + answers)
-        AnsAssApi.createAnsweredAssignment(answers)
-        .then(()=> window.location.reload());
-    };*/
+  const getAll = () => {
+    AssApi.getAllAssignment().then((response) => setAssignments(response.data));
+  };
 
-    const [assignments, setAssignments] = useState([]);
+  useEffect(() => {
+    getAll();
+  }, []);
 
-    const getAll = () => {
-        AssApi.getAllAssignment()
-        .then((response) => 
-            setAssignments(response.data))
-    };
+  const assignmentsDue = assignments.map((assignment) => {
+    return <AnsAssForm key={assignment.id} assignmentsDue={assignment} />;
+  });
 
-    useEffect(() => {
-       getAll();
-    }, []);
+  const assignmentTitles = assignments.map(
+    (assignment) => assignment.assignmentTitle
+  );
 
-
-    const assignmentsDue = assignments.map(assignment => {
-        return <AnsAssForm key={assignment.id}  assignmentsDue={assignment} />;
-      });
-
-    const assignmentTitles = assignments.map(assignment => assignment.assignmentTitle);
-
-
-
-    return (
-        <>
-      
-        <div>
-            <AnsAssForm></AnsAssForm>
-        </div>
-        </>
-    );
+  return (
+    <>
+      <div>
+        <AnsAssForm></AnsAssForm>
+      </div>
+    </>
+  );
 }
-//onSubmit={createAnsweredAssignment} 
-
-
-                                 
-
-
-                               
-                                    

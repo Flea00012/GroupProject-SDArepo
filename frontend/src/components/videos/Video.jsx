@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Video({ data }) {
   const {
@@ -17,8 +17,6 @@ export default function Video({ data }) {
       <Link to={`video/${id}`}>
         <img src={videoThumb} alt={description}></img>
       </Link>
-
-      {/* This could be a sub-component (atom)? */}
       <aside>
         <div>
           <img src={channelThumb} alt="Channel thumbnail" />

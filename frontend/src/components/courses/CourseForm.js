@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Modal } from "react-bootstrap";
 import "../../css/styles.css";
 
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
-import ClearIcon from '@material-ui/icons/Clear';
+import ClearIcon from "@material-ui/icons/Clear";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -28,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CourseForm({ onSubmit, onCancel }) {
-  console.log("course form");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [show, setShow] = useState(false);
@@ -53,12 +51,11 @@ function CourseForm({ onSubmit, onCancel }) {
         <form onSubmit={onCreateCourseClick}>
           <div className="course-form-group">
             <label>Title:</label>
-            {/* <span>(12 char)</span> */}
+
             <input
               className="input-update"
               type="text"
               maxLength="12"
-              // className="form-control"
               placeholder="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -70,7 +67,6 @@ function CourseForm({ onSubmit, onCancel }) {
             <label>Description:</label>
             <textarea
               className="input-update"
-              className="form-control"
               placeholder="Course Description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -90,7 +86,7 @@ function CourseForm({ onSubmit, onCancel }) {
               className={classes.button}
               type="button"
               onClick={onCancel}
-              endIcon={<ClearIcon/>}
+              endIcon={<ClearIcon />}
             >
               Cancel
             </Button>

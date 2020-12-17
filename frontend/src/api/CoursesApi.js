@@ -1,32 +1,25 @@
-
 import Api from "./Api";
 
 class CoursesApi {
+  getAllCourses() {
+    return Api.get("/courses");
+  }
 
-    getAllCourses() {
-        return Api.get('/courses');
-    }
+  getCourseById(id) {
+    return Api.get("/courses/" + id);
+  }
 
-    getCourseById(id) {
-        console.log("Value of courseId in API" + id)
-        return Api.get('/courses/' +id);
-    }
+  createCourse(course) {
+    return Api.post("/courses", course);
+  }
 
-    createCourse(course) {
-        return Api.post('/courses',course);
-    }
+  updateCourse(course) {
+    return Api.put("/courses", course);
+  }
 
-    updateCourse(course) {
-        console.log("I'm updated... or am I?", course);
-        return Api.put('/courses',course);
-    }
-
-    deleteCourse(id) {
-       
-        return Api.delete('/courses/'+id);
-
-    }
-
+  deleteCourse(id) {
+    return Api.delete("/courses/" + id);
+  }
 }
 
 export default new CoursesApi();

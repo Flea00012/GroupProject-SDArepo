@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Videos from './Videos';
-import UserApi from '../../api/UserApi';
+import React, { useState, useEffect } from "react";
+import Videos from "./Videos";
+import UserApi from "../../api/UserApi";
 
 export default function VideosPage({ course, currentUsers }) {
   const [currentUser, setCurrentUser] = useState([]);

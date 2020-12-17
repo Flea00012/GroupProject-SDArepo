@@ -1,92 +1,70 @@
-import React, { Component, useEffect, useRef } from 'react';
-import ChatInput from './ChatInput';
-import ChatMessage from './ChatMessage';
-import Style from "../../../css/styles.css";
-import UserApi from '../../../api/UserApi';
+import React, { Component } from "react";
+import ChatInput from "./ChatInput";
+import ChatMessage from "./ChatMessage";
+
+import UserApi from "../../../api/UserApi";
 import Forum from "../forum/Forum";
 
-
-//Media
-import CourseGraphic from "../../../images/Icons/Light_bulb.png";
-import Calender from "../../../images/Icons/clock_icon.png";
-import Students from "../../../images/Icons/Bag_icon.png";
-import chatIcon from "../../../images/Icons/paper_airplane.png";
-import assignmentIcon from "../../../images/Icons/NoteBook_icon.png";
-import videoIcon from "../../../images/Icons/Play_button.png";
-import apple from "../../../images/Icons/apple.png";
-
-const URL = 'ws://localhost:3030'
+const URL = "ws://localhost:3030";
 
 class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      currentUserId:null,
+      name: "",
+      currentUserId: null,
       messages: [],
-    }
+    };
     this.userName = this.userName.bind(this);
-    }
-
+  }
 
   userName() {
-    UserApi.getCurrentUser()
-      .then(results => this.setState({ name: results.data.name, currentUserId: results.data.id }));
+    UserApi.getCurrentUser().then((results) =>
+      this.setState({ name: results.data.name, currentUserId: results.data.id })
+    );
+  }
 
-  };
-  
-
-
-  ws = new WebSocket(URL)
+  ws = new WebSocket(URL);
 
   componentDidMount() {
     this.userName();
-    //console.log(this.state);
-    this.ws.onopen = () => {
-    }
 
+    this.ws.onopen = () => {};
 
-    this.ws.onmessage = evt => {
+    this.ws.onmessage = (evt) => {
       // on receiving a message, add it to the list of messages
-      const message = JSON.parse(evt.data)
-      this.addMessage(message)
-    }
+      const message = JSON.parse(evt.data);
+      this.addMessage(message);
+    };
 
     this.ws.onclose = () => {
       // automatically try to reconnect on connection loss
       this.setState({
         ws: new WebSocket(URL),
-      })
-    }
+      });
+    };
   }
-  
 
-  
-
- 
-  addMessage = message =>
+  addMessage = (message) =>
     // this.setState(state => ({ messages: [message, ...state.messages] }));
-    this.setState(state => ( {messages: state.messages.concat([message])  }));
+    this.setState((state) => ({ messages: state.messages.concat([message]) }));
 
-
-
-  submitMessage = messageString => {
+  submitMessage = (messageString) => {
     // on submitting the ChatInput form, send the message, add it to the list and reset the input
-    const message = { 
-      name:       this.state.name, 
-      message:    messageString,
-      fromUserId: this.state.currentUserId
-     };
-    this.ws.send(JSON.stringify(message))
-    this.addMessage(message)
-  }
+    const message = {
+      name: this.state.name,
+      message: messageString,
+      fromUserId: this.state.currentUserId,
+    };
+    this.ws.send(JSON.stringify(message));
+    this.addMessage(message);
+  };
 
   //  alwaysScrollToBottom = () => {
   //   const elementRef = useRef();
   //   useEffect(() => elementRef.current.scrollIntoView());
   //   return <div ref={elementRef} />;
   // };
-
 
   render() {
     return (
@@ -95,40 +73,36 @@ class Chat extends Component {
         <div className="horizontalline"></div>
         <div className="chat-page-row">
           <div className="chat-page-column">
-            <div className="forumCard"><Forum /></div>
+            <div className="forumCard">
+              <Forum />
+            </div>
           </div>
           <div className="chat-page-column">
             <div className="chatCard">
-           
               <div className="chatbox">
-                
-                {this.state.messages.map((message, index) =>
-                  
-                  
-                   <ChatMessage
-                      key={index}
-                      userIndex={index}
-                      message={message}
-                      myUserId={this.state.currentUserId}
-                  /> 
-                
-              
-                 
-                )}
-
-              </div> 
+                {this.state.messages.map((message, index) => (
+                  <ChatMessage
+                    key={index}
+                    userIndex={index}
+                    message={message}
+                    myUserId={this.state.currentUserId}
+                  />
+                ))}
+              </div>
               <div className="chat-inputform">
-                <label htmlFor="name">
-                </label>
+                <label htmlFor="name"></label>
                 <ChatInput
                   ws={this.ws}
-                  onSubmitMessage={messageString => this.submitMessage(messageString)}
-                /></div>
+                  onSubmitMessage={(messageString) =>
+                    this.submitMessage(messageString)
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
-export default Chat
+export default Chat;

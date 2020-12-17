@@ -14,7 +14,6 @@ export default function Sentiment() {
   const viewQuestions = () => {
     QuestionsApi.getAllQuestions()
       .then((response) => {
-        console.log("response", response.data);
         setQuestions(response.data);
       })
       .catch((err) => console.error(err));

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import AssignmentsApi from '../../api/AssignmentsApi';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { parseISO } from 'date-fns';
+import React, { useState, useEffect } from "react";
+import AssignmentsApi from "../../api/AssignmentsApi";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { parseISO } from "date-fns";
 import Button from "@material-ui/core/Button";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
-import assignmentImg from '../../images/banner/banner-classassignments.png';
-import { useHistory } from 'react-router-dom';
-import ClearIcon from '@material-ui/icons/Clear';
+import assignmentImg from "../../images/banner/banner-classassignments.png";
+import { useHistory } from "react-router-dom";
+import ClearIcon from "@material-ui/icons/Clear";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -24,39 +24,32 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: [[0, 5, "#999"]],
     "&:hover": {
       backgroundColor: "#464866 !important",
-    }
+    },
   },
-  
 }));
 
 function AssignmentsPageUpdation({ match }) {
-
-  
-  console.log('No match for my batch: ', match);
   const classes = useStyles();
-  const [assignmentTitle, setAssignmentTitle] = useState('');
-  const [assignmentDescription, setAssignmentDescription] = useState('');
+  const [assignmentTitle, setAssignmentTitle] = useState("");
+  const [assignmentDescription, setAssignmentDescription] = useState("");
   const [dueDate, setDueDate] = useState(new Date());
-  const [question1, setQuestion1] = useState('');
-  const [question2, setQuestion2] = useState('');
-  const [question3, setQuestion3] = useState('');
-  const [question4, setQuestion4] = useState('');
-  const [question5, setQuestion5] = useState('');
-  const [question6, setQuestion6] = useState('');
-  const [question7, setQuestion7] = useState('');
-  const [question8, setQuestion8] = useState('');
-  const [question9, setQuestion9] = useState('');
-  const [question10, setQuestion10] = useState('');
-  const [assignId, setAssignId] = useState('');
-  const [course, setCourse] = useState('');
+  const [question1, setQuestion1] = useState("");
+  const [question2, setQuestion2] = useState("");
+  const [question3, setQuestion3] = useState("");
+  const [question4, setQuestion4] = useState("");
+  const [question5, setQuestion5] = useState("");
+  const [question6, setQuestion6] = useState("");
+  const [question7, setQuestion7] = useState("");
+  const [question8, setQuestion8] = useState("");
+  const [question9, setQuestion9] = useState("");
+  const [question10, setQuestion10] = useState("");
+  const [assignId, setAssignId] = useState("");
+  const [course, setCourse] = useState("");
   const history = useHistory();
-  
-  
-    const goBack = () =>
-    {
-        history.goBack();
-    }
-  
+
+  const goBack = () => {
+    history.goBack();
+  };
 
   const getAssignmentById = (id) => {
     AssignmentsApi.getAssignmentById(id).then((response) => {
@@ -78,7 +71,7 @@ function AssignmentsPageUpdation({ match }) {
     });
   };
   useEffect(() => {
-    if (typeof match.params.assignId !== 'undefined' || assignId !== '') {
+    if (typeof match.params.assignId !== "undefined" || assignId !== "") {
       getAssignmentById(match.params.assignId);
     }
   }, []);
@@ -102,14 +95,10 @@ function AssignmentsPageUpdation({ match }) {
     }).then((response) => {
       setAssignId(response.data.id);
       window.location.reload();
-      {
-        /* alert('Successfully added the assignment'); */
-      }
     });
   }
 
   function handleUpdate() {
-    console.log('Inside Update' + assignId);
     // Creating a local variable
     const id = assignId;
     AssignmentsApi.updateAssignment({
@@ -129,176 +118,167 @@ function AssignmentsPageUpdation({ match }) {
       question10,
       course,
     }).then((response) => {
-      //window.location.reload();
-      {
-        /*alert('Updation of Assignment Successful') */
-      }
       history.go(-1);
     });
   }
-  console.log('But of course: ', course.id);
+
   return (
     <div className="container-assignment">
-     <img className="assignmentimage"  src={assignmentImg} />
+      <img className="assignmentimage" src={assignmentImg} alt={assignmentImg}/>
       <div className="question">
-     
-        <div >
+        <div>
           <label>Assignment Title:</label>
 
-         <input
-          type="text"
-          value={assignmentTitle}
-          className="form-control"
-          onChange={(e) => setAssignmentTitle(e.target.value)}
-        />
-      </div>
-
-      <div>
-        <label>Assignment Description:</label>
-
-        <input
-          type="text"
-          value={assignmentDescription}
-          className="form-control"
-          onChange={(e) => setAssignmentDescription(e.target.value)}
-        />
-      </div>
-
-         <div>
-            <label>Deadline: </label>
+          <input
+            type="text"
+            value={assignmentTitle}
+            className="form-control"
+            onChange={(e) => setAssignmentTitle(e.target.value)}
+          />
         </div>
 
         <div>
-        <DatePicker
-          selected={dueDate}
-          onChange={(date) => setDueDate(date)}
-          showCalendarIcon={true}
-          required={true}
-          calendarAriaLabel="Toggle calendar"
-        />
+          <label>Assignment Description:</label>
+
+          <input
+            type="text"
+            value={assignmentDescription}
+            className="form-control"
+            onChange={(e) => setAssignmentDescription(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Deadline: </label>
+        </div>
+
+        <div>
+          <DatePicker
+            selected={dueDate}
+            onChange={(date) => setDueDate(date)}
+            showCalendarIcon={true}
+            required={true}
+            calendarAriaLabel="Toggle calendar"
+          />
+        </div>
+
+        <div>
+          <label>Question 1:</label>
+          <textarea
+            type="text"
+            value={question1}
+            className="form-control"
+            onChange={(e) => setQuestion1(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 2:</label>
+          <textarea
+            type="text"
+            value={question2}
+            className="form-control"
+            onChange={(e) => setQuestion2(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 3:</label>
+          <textarea
+            type="text"
+            value={question3}
+            className="form-control"
+            onChange={(e) => setQuestion3(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 4:</label>
+          <textarea
+            type="text"
+            value={question4}
+            className="form-control"
+            onChange={(e) => setQuestion4(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 5:</label>
+          <textarea
+            type="text"
+            value={question5}
+            className="form-control"
+            onChange={(e) => setQuestion5(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 6:</label>
+          <textarea
+            type="text"
+            value={question6}
+            className="form-control"
+            onChange={(e) => setQuestion6(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 7:</label>
+          <textarea
+            type="text"
+            value={question7}
+            className="form-control"
+            onChange={(e) => setQuestion7(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 8:</label>
+          <textarea
+            type="text"
+            value={question8}
+            className="form-control"
+            onChange={(e) => setQuestion8(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 9:</label>
+          <textarea
+            type="text"
+            value={question9}
+            className="form-control"
+            onChange={(e) => setQuestion9(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 10:</label>
+          <textarea
+            type="text"
+            value={question10}
+            className="form-control"
+            onChange={(e) => setQuestion10(e.target.value)}
+          />
+        </div>
       </div>
-      
-        
 
-          <div>
-            <label>Question 1:</label>
-            <textarea
-              type="text"
-              value={question1}
-              className="form-control"
-              onChange={(e) => setQuestion1(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 2:</label>
-            <textarea
-              type="text"
-              value={question2}
-              className="form-control"
-              onChange={(e) => setQuestion2(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 3:</label>
-            <textarea
-              type="text"
-              value={question3}
-              className="form-control"
-              onChange={(e) => setQuestion3(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 4:</label>
-            <textarea
-              type="text"
-              value={question4}
-              className="form-control"
-              onChange={(e) => setQuestion4(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 5:</label>
-            <textarea
-              type="text"
-              value={question5}
-              className="form-control"
-              onChange={(e) => setQuestion5(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 6:</label>
-            <textarea
-              type="text"
-              value={question6}
-              className="form-control"
-              onChange={(e) => setQuestion6(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 7:</label>
-            <textarea
-              type="text"
-              value={question7}
-              className="form-control"
-              onChange={(e) => setQuestion7(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 8:</label>
-            <textarea
-              type="text"
-              value={question8}
-              className="form-control"
-              onChange={(e) => setQuestion8(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 9:</label>
-            <textarea
-              type="text"
-              value={question9}
-              className="form-control"
-              onChange={(e) => setQuestion9(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 10:</label>
-            <textarea
-              type="text"
-              value={question10}
-              className="form-control"
-              onChange={(e) => setQuestion10(e.target.value)}
-            />
-          </div>
-     </div>
-      
       <div className="card-header">
-            
-          
-
-                <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                endIcon={<Icon>send</Icon>}
-                onClick={() => handleUpdate()}
-                
-              >
-              Update Assignment
-              </Button>
-              <Link to={`/courseDetail/${course.id}`}>
-              <Button className={classes.button} endIcon={<ClearIcon/>}>Cancel</Button></Link>
-              
-    </div>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          endIcon={<Icon>send</Icon>}
+          onClick={() => handleUpdate()}
+        >
+          Update Assignment
+        </Button>
+        <Link to={`/courseDetail/${course.id}`}>
+          <Button className={classes.button} endIcon={<ClearIcon />}>
+            Cancel
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -12,8 +12,8 @@ import { Link } from "react-router-dom";
 import AssignmentsApi from "../../api/AssignmentsApi";
 import DeleteIcon from "@material-ui/icons/Delete";
 import UserApi from "../../api/UserApi";
-import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi';
-import AssignmentGrade from '../answeredAssignments/AssignmentGrade';
+
+import AssignmentGrade from "../answeredAssignments/AssignmentGrade";
 
 const columns = [
   {
@@ -65,14 +65,13 @@ const useStyles = makeStyles({
 
 function AssignmentsView({ course, currentUsers }) {
   const [rows, setRows] = useState([]);
-  
+
   const handleDelete = ({ assignId }) => {
     AssignmentsApi.deleteAssignment(assignId).then((response) => {
       window.location.reload();
     });
   };
-  
-  
+
   const viewAssignment = (course) => {
     if (typeof course !== "undefined" && course !== "") {
       AssignmentsApi.getAllAssignment(course.id).then((response) => {
@@ -90,7 +89,6 @@ function AssignmentsView({ course, currentUsers }) {
       });
     }
   };
-
 
   useEffect(() => {
     getUserRole();
@@ -117,7 +115,6 @@ function AssignmentsView({ course, currentUsers }) {
     UserApi.getCurrentUser().then((response) => {
       setCurrentUser(response.data.userRole);
       setUserId(response.data.id);
-      
     });
   };
 
@@ -166,12 +163,16 @@ function AssignmentsView({ course, currentUsers }) {
                               align={column.align}
                             >
                               {column.id === "title" ? (
-                                <Link className="link"
+                                <Link
+                                  className="link"
                                   to={
                                     currentUser === "teacher"
                                       ? `/assignmentsView/${assignId}`
-                                      :  typeof course === "undefined" ? `/assignmentsAnsweredView/${assignId}` : `/assignmentsAnsweredView/${assignId}/${course.id}`
-                                  }>
+                                      : typeof course === "undefined"
+                                      ? `/assignmentsAnsweredView/${assignId}`
+                                      : `/assignmentsAnsweredView/${assignId}/${course.id}`
+                                  }
+                                >
                                   {column.format && typeof value === "number"
                                     ? column.format(value)
                                     : value}
@@ -180,20 +181,25 @@ function AssignmentsView({ course, currentUsers }) {
                               {currentUser === "teacher" ? (
                                 <div>
                                   {column.id === "ICONS" ? (
-                                    <DeleteIcon fontSize="small"
+                                    <DeleteIcon
+                                      fontSize="small"
                                       onClick={() => handleDelete({ assignId })}
                                     />
                                   ) : null}
                                 </div>
-                              ) : 
+                              ) : (
                                 <div>
-                                  {column.id === "ICONS" ?
+                                  {column.id === "ICONS" ? (
                                     <div>
-                                      <AssignmentGrade key={assignId + "," + userId} assignmentId={assignId} userId={userId}/> 
-                                      </div>: null}
+                                      <AssignmentGrade
+                                        key={assignId + "," + userId}
+                                        assignmentId={assignId}
+                                        userId={userId}
+                                      />
+                                    </div>
+                                  ) : null}
                                 </div>
-                              
-                        }
+                              )}
                               {column.id === "dueDate" ? value : null}
                             </TableCell>
                           );

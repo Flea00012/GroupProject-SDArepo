@@ -1,9 +1,5 @@
-
-
 import React, { useState, useEffect } from "react";
-import { Modal } from "react-bootstrap";
 import CourseForm from "./CourseForm";
-
 import CoursesApi from "../../api/CoursesApi";
 import CoursesList from "./CoursesList";
 
@@ -11,16 +7,12 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 
-import CourseUpdateForm from './CourseUpdateForm.js';
-
-
 import UserApi from "../../api/UserApi";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    //margin: theme.spacing(1),
     backgroundColor: "#25274D",
-    color:'white',
+    color: "white",
     cursor: "pointer",
     textDecoration: "none",
     borderRadius: 15,
@@ -33,33 +25,29 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: [[0, 5, "#666"]],
       transform: "translateY(4) !important",
     },
-    
   },
 }));
 
 function CoursePage() {
-   
   const [courses, setCourses] = useState([]);
   const [openForm, setOpenForm] = useState(false);
-  
-    //useState variables
+
+  //useState variables
   const classes = useStyles();
   const [currentUser, setCurrentUser] = useState("");
-  
 
   const getAll = () => {
     CoursesApi.getAllCourses().then((res) => {
       setCourses(res.data.sort((a, b) => b.id - a.id));
     });
   };
-  
+
   //Get userRole call
-const getUserRole = () => {
-  UserApi.getCurrentUser()
-      .then(response => {
+  const getUserRole = () => {
+    UserApi.getCurrentUser().then((response) => {
       setCurrentUser(response.data.userRole);
-      })
-}
+    });
+  };
 
   useEffect(() => {
     getAll();
@@ -69,7 +57,6 @@ const getUserRole = () => {
   const createCourse = (courseData) => {
     return CoursesApi.createCourse(courseData).then((res) => {
       setCourses([res.data, ...courses]);
-      // setOpenForm(false);
     });
   };
 
@@ -82,60 +69,47 @@ const getUserRole = () => {
       setCourses(courses.filter((a) => a.id !== course.id))
     );
   };
-  
+
   const onCreateNewCourse = () => {
     setOpenForm(true);
   };
 
-const updateCourse = (updatedCourse) => {
-    CoursesApi.updateCourse(updatedCourse)
-      .then(r => getAll());
-};
+  const updateCourse = (updatedCourse) => {
+    CoursesApi.updateCourse(updatedCourse).then((r) => getAll());
+  };
 
   return (
-  <div>
-         <div className="course-banner">
-             Courses
-             
-         </div>
-         <hr/>
-         {/*  <div className="horizontalline">
-             </div> */}
-     
-        
-       <div className="row-buttons">
-          { openForm ? 
-            <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
-          
-           : 
-           <>
-          {currentUser==='teacher' ? 
-            <Button
-              className={classes.button}
-              // className="create-coursebutton"
-              endIcon={<Icon>send</Icon>}
-              onClick={onCreateNewCourse}>
-              Create Course
-            </Button> : null
-            }
+    <div>
+      <div className="course-banner">Courses</div>
+      <hr />
+
+      <div className="row-buttons">
+        {openForm ? (
+          <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} />
+        ) : (
+          <>
+            {currentUser === "teacher" ? (
+              <Button
+                className={classes.button}
+                endIcon={<Icon>send</Icon>}
+                onClick={onCreateNewCourse}
+              >
+                Create Course
+              </Button>
+            ) : null}
             <div className="course-container"></div>
             <div className="media">
-              
-            <CoursesList 
-              courses={courses} 
-              onCourseDelete={deleteCourse} 
-
-              onCourseUpdate={updateCourse}
-              currentUser = {currentUser}
-            /></div>
-          </> 
-        }
+              <CoursesList
+                courses={courses}
+                onCourseDelete={deleteCourse}
+                onCourseUpdate={updateCourse}
+                currentUser={currentUser}
+              />
+            </div>
+          </>
+        )}
       </div>
- 
-      </div>
-     
- 
+    </div>
   );
 }
 export default CoursePage;
-

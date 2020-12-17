@@ -58,7 +58,7 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: "name", numeric: false, disablePadding: false, label: "Submitted By"},
+  { id: "name", numeric: false, disablePadding: false, label: "Submitted By" },
   {
     id: "title",
     numeric: false,
@@ -125,16 +125,12 @@ const useToolbarStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
     backgroundColor: "#2E9CCA",
-    
   },
-  
+
   title: {
     flex: "1 1 100%",
     color: "white",
     fontSize: "calc(6px + 2vmin)",
-    
-    
-    
   },
 }));
 
@@ -166,18 +162,13 @@ EnhancedTableToolbar.propTypes = {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-   
   },
   paper: {
     width: "100%",
     marginBottom: theme.spacing(2),
-    
-    
   },
   table: {
     minWidth: 750,
-    
-    
   },
   visuallyHidden: {
     border: 0,
@@ -215,7 +206,6 @@ function DisplaySubmittedAssignment({ match }) {
   const classes = useStyles();
 
   const getAllAnsweredAssignment = (courseId) => {
-    console.log("CourseId **********" + courseId);
     AnsweredAssignmentsApi.getAllAnsweredAssignmentsByCourseId(courseId).then(
       (response) => {
         const newArray = response.data.map((item) =>
@@ -296,7 +286,6 @@ function DisplaySubmittedAssignment({ match }) {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  console.log(row);
                   return (
                     <TableRow>
                       <TableCell>

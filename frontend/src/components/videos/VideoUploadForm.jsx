@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#464866 !important",
     },
   },
-  
 }));
 
 export default function VideoUploadForm({ course, currentUser }) {

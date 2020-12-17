@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import CoursesApi from "../../api/CoursesApi";
 import { useHistory } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -33,7 +33,6 @@ function AssignmentsPage({ match }) {
   const [assignmentDescription, setAssignmentDescription] = useState("");
   const [dueDate, setDueDate] = useState(new Date());
   const history = useHistory();
- 
 
   const [question1, setQuestion1] = useState("");
   const [question2, setQuestion2] = useState("");
@@ -93,8 +92,6 @@ function AssignmentsPage({ match }) {
     }
   };
 
- 
-
   return (
     <div className="container-assignment">
       <div>
@@ -117,7 +114,6 @@ function AssignmentsPage({ match }) {
             onChange={(e) => setAssignmentTitle(e.target.value)}
             required
           />
-         
         </div>
 
         <div>
@@ -253,12 +249,15 @@ function AssignmentsPage({ match }) {
             Add Assignment
           </Button>
           <Link to={`/courseDetail/${match.params.courseId}`}>
-              <Button 
+            <Button
               variant="contained"
               color="primary"
               className={classes.button}
               endIcon={<Icon>send</Icon>}
-              >Back</Button></Link>
+            >
+              Back
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   AreaChart,
   Area,
@@ -8,7 +8,7 @@ import {
   Tooltip,
   Label,
   ResponsiveContainer,
-} from 'recharts';
+} from "recharts";
 
 export default function ScatterPlot({ data }) {
   return (

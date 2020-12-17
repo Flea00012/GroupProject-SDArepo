@@ -4,13 +4,13 @@ import CoursesApi from "../../api/CoursesApi";
 import UserApi from "../../api/UserApi";
 import Videos from "../videos/VideosPage";
 import VideoUpLoadForm from "../videos/VideoUploadForm";
-import AssignmentsPage from "../assignments/AssignmentsPage";
+
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 import { Link } from "react-router-dom";
 import "../../css/styles.css";
-import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
+import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -82,87 +82,77 @@ export default function CourseDetailsPage({ match }) {
 
   return (
     <>
-    
-    <div className="course-details">
-      <div className="course-details-description">
-        <h2 className="course-description">
-        <AssignmentOutlinedIcon fontSize="large" />
-          {course.title}
-        </h2>
-      </div>
-      
-      <div className="course-details-text">
-        
-       {<p>{course.description}</p>}
-       </div>
-      
-      <div className="course-details-section">
-        <div>
-          <div className="assignment-details">
-            
+      <div className="course-details">
+        <div className="course-details-description">
+          <h2 className="course-description">
+            <AssignmentOutlinedIcon fontSize="large" />
+            {course.title}
+          </h2>
+        </div>
+
+        <div className="course-details-text">{<p>{course.description}</p>}</div>
+
+        <div className="course-details-section">
+          <div>
+            <div className="assignment-details">
               <>
                 <AssignmentsView course={course} currentUser={currentUser} />
                 {currentUser.userRole === "teacher" ? (
                   <Link to={`/assignmentsViewForCourse/${courseId}`}>
-                   
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.button}
-                        endIcon={<Icon>send</Icon>}
-                        onClick={onCreateNewAssignment}
-                      >
-                        Add New Assignment
-                      </Button>
-                   
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      endIcon={<Icon>send</Icon>}
+                      onClick={onCreateNewAssignment}
+                    >
+                      Add New Assignment
+                    </Button>
                   </Link>
                 ) : null}
               </>
-            
-            {currentUser.userRole === "teacher" ? (
-              <Link to={`/assignmentsSubmittedView/${courseId}`}>
-                
+
+              {currentUser.userRole === "teacher" ? (
+                <Link to={`/assignmentsSubmittedView/${courseId}`}>
                   <Button
                     variant="contained"
                     color="primary"
                     className={classes.button}
                     endIcon={<Icon>send</Icon>}
                     onClick={onCreateNewAssignment}
-                     >
+                  >
                     View Submitted Assignment
                   </Button>
-               
-              </Link>
-            ) : null}
-          </div>
-          <div className="lecture-details">
-            <div className="check">
-              {openLectureForm ? (
-                <>
-                  <Videos course={course} currentUser={currentUser} />
-                </>
-              ) : (
-                <VideoUpLoadForm course={course} currentUser={currentUser} />
-              )}
+                </Link>
+              ) : null}
             </div>
-            {currentUser.userRole === "teacher" ? (
-            <div className="buttonCheck">
-          
-              <Button
-                variant="contained"
-                color="default"
-                className={classes.uploadButton}
-                endIcon={<Icon>send</Icon>}
-                onClick={onUploadVideo}
-              >
-                Add new video
-              </Button> 
-            </div>): null }
+            <div className="lecture-details">
+              <div className="check">
+                {openLectureForm ? (
+                  <>
+                    <Videos course={course} currentUser={currentUser} />
+                  </>
+                ) : (
+                  <VideoUpLoadForm course={course} currentUser={currentUser} />
+                )}
+              </div>
+              {currentUser.userRole === "teacher" ? (
+                <div className="buttonCheck">
+                  <Button
+                    variant="contained"
+                    color="default"
+                    className={classes.uploadButton}
+                    endIcon={<Icon>send</Icon>}
+                    onClick={onUploadVideo}
+                  >
+                    Add new video
+                  </Button>
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-   
-    </>   
+    </>
   );
 }

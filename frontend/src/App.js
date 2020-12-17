@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Import custom styles for our application
-import './App.css';
+import "./App.css";
 
-import Auth from './services/Auth';
-import Navbar from './components/layout/Navbar';
+import Auth from "./services/Auth";
+import Navbar from "./components/layout/Navbar";
 
 // Import pages
 import SchedulerPage from './components/scheduler/SchedulerPage';
