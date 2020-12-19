@@ -1,4 +1,6 @@
+//react core
 import React from "react";
+//import rechart and components
 import {
   AreaChart,
   Area,
@@ -10,6 +12,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+//ScatterPlot component
 export default function ScatterPlot({ data }) {
   return (
     <ResponsiveContainer height={300} width="100%">

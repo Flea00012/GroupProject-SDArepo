@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+//react core
+import React, { useState } from 'react';
+//react router-dom modules
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import custom styles for our application
 import "./App.css";
 
-import Auth from "./services/Auth";
-import Navbar from "./components/layout/Navbar";
+//auth services for login
+import Auth from './services/Auth';
+//navBar component
+import Navbar from './components/layout/Navbar';
 
 // Import pages
 import SchedulerPage from './components/scheduler/SchedulerPage';
@@ -24,6 +28,7 @@ import AssignmentsPageUpdation from './components/assignments/AssignmentPageUpda
 import DisplaySubmittedAssignment from './components/answeredAssignments/DisplaySubmittedAssignment';
 import AssignmentSubmitted from './components/answeredAssignments/AssignmentSubmitted';
 
+//highest level react application component
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
   Auth.bindLoggedInStateSetter(setLoggedIn);

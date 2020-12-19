@@ -1,11 +1,18 @@
-import React, { Component } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import AssignmentsAPI from "../../api/AssignmentsApi";
+//import react core
+import React, { Component } from 'react';
+//import react big calendar
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+//import moment for local time standardize
+import moment from 'moment';
+//import axios instance
+import AssignmentsAPI from '../../api/AssignmentsApi';
 
-import "react-big-calendar/lib/css/react-big-calendar.css";
+//import css from big calendar library
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+//import css for the scheduler page
 import "../../css/scheduler.css";
 
+//create localizer for time from moment module
 const localizer = momentLocalizer(moment);
 
 export default class Scheduler extends Component {

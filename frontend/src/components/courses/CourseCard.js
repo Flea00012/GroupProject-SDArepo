@@ -1,7 +1,9 @@
 // React core
 import React from "react";
+//react router-dom module
 import { Link } from "react-router-dom";
 
+//CourseCard component
 export default function CourseCard({ data }) {
   const { id, title } = data;
 

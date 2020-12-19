@@ -1,11 +1,15 @@
+//react core
 import React, { useState, useEffect } from "react";
-
+//axios instance
 import LecturesApi from "../../api/LecturesApi";
+//VideoCard component
 import VideoCard from "./VideoCard";
 
+//css styles for videos and page
 import "../../css/videos.css";
 import "../../css/styles.css";
 
+//Videos component
 export default function Videos({ course, currentUser }) {
   const [videos, setVideos] = useState([]);
   const [lectures, setLectures] = useState([]);

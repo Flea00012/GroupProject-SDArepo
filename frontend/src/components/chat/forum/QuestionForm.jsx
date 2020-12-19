@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-
+//react core
+import React, { useState } from 'react';
+//QuestionForm component
 function QuestionForm({ onSubmit }) {
   const [textBody, setTextBody] = useState();
 
@@ -23,6 +24,7 @@ function QuestionForm({ onSubmit }) {
             >
               Post
             </button>
+          
           </div>
         </div>
       </div>

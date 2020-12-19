@@ -1,6 +1,10 @@
+//react core
 import React, { useState, useEffect } from "react";
+//proptypes import
 import PropTypes from "prop-types";
+//clsx import for react
 import clsx from "clsx";
+//material UI components, state styles and modules
 import { lighten, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -13,13 +17,21 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
+
+//axios Instance
 import AnsweredAssignmentsApi from "../../api/AnsweredAssignmentsApi";
+//react router-dom module
 import { Link } from "react-router-dom";
+//star icon for material UI
 import StarIcon from "@material-ui/icons/Star";
+//button for material UI
 import Button from "@material-ui/core/Button";
+//react router-dom module
 import { useHistory } from "react-router-dom";
+//material UI icon
 import Icon from "@material-ui/core/Icon";
 
+//createData function
 function createData(user, title, id, rating) {
   var ratingArray = new Array(0);
   const userName = user.name;
@@ -30,7 +42,7 @@ function createData(user, title, id, rating) {
   }
   return { userName, title, id, ratingArray };
 }
-
+//descending comparator function
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -41,12 +53,14 @@ function descendingComparator(a, b, orderBy) {
   return 0;
 }
 
+//GET comparator function
 function getComparator(order, orderBy) {
   return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
+//stableSort the array
 function stableSort(array, comparator) {
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {

@@ -1,16 +1,27 @@
+//react core
 import React, { useState, useEffect } from "react";
+//axios instance
 import AssignmentsApi from "../../api/AssignmentsApi";
+//axios instance
 import AnsAssApi from "../../api/AnsweredAssignmentsApi";
+//axios instance
 import UserApi from "../../api/UserApi";
+
+//image of assignment
 import assignmentImg from "../../images/banner/banner-classassignments.png";
+//react router-dom module
 import { useHistory } from "react-router-dom";
 
+//material UI state styles and Icons
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
+//css styles
 import "../../css/styles.css";
+////axios instance
 import CoursesApi from "../../api/CoursesApi.js";
 
+//make a style with material UI state style
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -30,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//AnsweredAssignmentForm component
 export default function AnsweredAssignmentsForm({ match }) {
   const classes = useStyles();
   const history = useHistory();
@@ -77,6 +89,8 @@ export default function AnsweredAssignmentsForm({ match }) {
     { question: question9, answer: answer9, answerFunction: setAnswer9 },
     { question: question10, answer: answer10, answerFunction: setAnswer10 },
   ];
+
+  //GET method for Assignment by Id
   const getAssignmentById = (id) => {
     AssignmentsApi.getAssignmentById(id).then((response) => {
       setAssignmentId(response.data.id);
@@ -95,6 +109,7 @@ export default function AnsweredAssignmentsForm({ match }) {
     });
   };
 
+  //GET userRole for current user
   const getUserRole = () => {
     UserApi.getCurrentUser().then((response) => {
       setUser(response.data);
@@ -108,12 +123,14 @@ export default function AnsweredAssignmentsForm({ match }) {
       getCourseById(match.params.courseId);
   }, []);
 
+  //GET courseId for the assignment
   const getCourseById = (courseId) => {
     CoursesApi.getCourseById(courseId).then((res) => {
       setCourse(res.data);
     });
   };
 
+  //Answered Assignment creation function
   const createAnsweredAssignment = (answers) => {
     AnsAssApi.createAnsweredAssignment(answers).then((response) => {
       history.goBack();
@@ -223,19 +240,18 @@ export default function AnsweredAssignmentsForm({ match }) {
               </a>
             </div>
           </div>
+          <div className="check1">
+            <Button
+              onClick={goBack}
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              endIcon={<Icon>send</Icon>}
+            >
+              Back
+            </Button>
+          </div>
         </div>
-      </div>
-
-      <div>
-        <Button
-          onClick={goBack}
-          variant="contained"
-          color="primary"
-          className={classes.button}
-          endIcon={<Icon>send</Icon>}
-        >
-          Back
-        </Button>
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-# Educational Support Environment 
+# Eduverse
 
 An online tool for educational purposes that supports the learning process of students who are studying through distance-learning courses.
 

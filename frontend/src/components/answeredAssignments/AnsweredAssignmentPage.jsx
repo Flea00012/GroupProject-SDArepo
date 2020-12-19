@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from "react";
-import AnsAssForm from "../answeredAssignments/AnsweredAssignmentForm";
-import AssApi from "../../api/AssignmentsApi";
+//react core
+import React, { useEffect, useState } from 'react';
 
+//answeredAssignmentForm component
+import AnsAssForm from '../answeredAssignments/AnsweredAssignmentForm';
+//axios instance
+import AssApi from '../../api/AssignmentsApi';
+
+//AnsweredAssignmentPage component
 export default function AnsweredAssignmentPage() {
   const [assignments, setAssignments] = useState([]);
 
@@ -29,3 +34,4 @@ export default function AnsweredAssignmentPage() {
     </>
   );
 }
+

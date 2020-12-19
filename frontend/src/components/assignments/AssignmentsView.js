@@ -1,4 +1,7 @@
+// react core
 import React, { useEffect, useState } from "react";
+
+//material UI styles state and associated components
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -8,11 +11,16 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-import { Link } from "react-router-dom";
-import AssignmentsApi from "../../api/AssignmentsApi";
-import DeleteIcon from "@material-ui/icons/Delete";
-import UserApi from "../../api/UserApi";
 
+//react router-dom module
+import { Link } from "react-router-dom";
+//axios instance
+import AssignmentsApi from "../../api/AssignmentsApi";
+//material UI delete icon
+import DeleteIcon from "@material-ui/icons/Delete";
+//axios instance
+import UserApi from "../../api/UserApi";
+// Assignments grade component for student grading by teacher
 import AssignmentGrade from "../answeredAssignments/AssignmentGrade";
 
 const columns = [
@@ -39,10 +47,12 @@ const columns = [
   },
 ];
 
+//createData function
 function createData(title, Id, dueDate) {
   return { title, Id, dueDate };
 }
 
+//make style with material UI state style
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -63,15 +73,18 @@ const useStyles = makeStyles({
   },
 });
 
+//AssignmentsView function with CRUD operations
 function AssignmentsView({ course, currentUsers }) {
   const [rows, setRows] = useState([]);
 
+  //deletion of assignment
   const handleDelete = ({ assignId }) => {
     AssignmentsApi.deleteAssignment(assignId).then((response) => {
       window.location.reload();
     });
   };
 
+  //viewing of assignment by course Id
   const viewAssignment = (course) => {
     if (typeof course !== "undefined" && course !== "") {
       AssignmentsApi.getAllAssignment(course.id).then((response) => {

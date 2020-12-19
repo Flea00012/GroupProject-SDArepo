@@ -1,16 +1,27 @@
+//react core
 import React, { useState, useEffect } from "react";
+//axios instance
 import AssignmentsApi from "../../api/AssignmentsApi";
+//datePicker from react-datepicker
 import DatePicker from "react-datepicker";
+//css for react-datepicker
 import "react-datepicker/dist/react-datepicker.css";
 import { parseISO } from "date-fns";
+//button from material ui
 import Button from "@material-ui/core/Button";
+//react router-dom module
 import { Link } from "react-router-dom";
+//material ui icons and styles
 import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
+//image for the banner
 import assignmentImg from "../../images/banner/banner-classassignments.png";
+//react router-dom module
 import { useHistory } from "react-router-dom";
+//material UI icon
 import ClearIcon from "@material-ui/icons/Clear";
 
+//make styles from material ui styles state
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -28,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//AssisgnmentPageUpdation component
 function AssignmentsPageUpdation({ match }) {
   const classes = useStyles();
   const [assignmentTitle, setAssignmentTitle] = useState("");
@@ -51,6 +63,7 @@ function AssignmentsPageUpdation({ match }) {
     history.goBack();
   };
 
+  //function to GET assignments by ID
   const getAssignmentById = (id) => {
     AssignmentsApi.getAssignmentById(id).then((response) => {
       setAssignId(response.data.id);
@@ -76,6 +89,7 @@ function AssignmentsPageUpdation({ match }) {
     }
   }, []);
 
+  //function to handleSubmit of assignment by user
   function handleSubmit() {
     AssignmentsApi.postAssignment({
       course,
@@ -124,7 +138,7 @@ function AssignmentsPageUpdation({ match }) {
 
   return (
     <div className="container-assignment">
-      <img className="assignmentimage" src={assignmentImg} alt={assignmentImg}/>
+      <img className="assignmentimage" src={assignmentImg} />
       <div className="question">
         <div>
           <label>Assignment Title:</label>

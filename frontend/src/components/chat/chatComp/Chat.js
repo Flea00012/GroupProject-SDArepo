@@ -1,17 +1,23 @@
-import React, { Component } from "react";
-import ChatInput from "./ChatInput";
-import ChatMessage from "./ChatMessage";
+//react core
+import React, { Component } from 'react';
+//ChatInput component
+import ChatInput from './ChatInput';
+//ChatMessage component
+import ChatMessage from './ChatMessage';
 
-import UserApi from "../../../api/UserApi";
-import Forum from "../forum/Forum";
+//axios instance
+import UserApi from '../../../api/UserApi';
+//Forum Component
+import Forum from '../forum/Forum';
 
-const URL = "ws://localhost:3030";
+const URL = 'ws://localhost:3030';
 
+//chat component
 class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      name: '',
       currentUserId: null,
       messages: [],
     };
@@ -46,7 +52,6 @@ class Chat extends Component {
   }
 
   addMessage = (message) =>
-    // this.setState(state => ({ messages: [message, ...state.messages] }));
     this.setState((state) => ({ messages: state.messages.concat([message]) }));
 
   submitMessage = (messageString) => {
@@ -59,12 +64,6 @@ class Chat extends Component {
     this.ws.send(JSON.stringify(message));
     this.addMessage(message);
   };
-
-  //  alwaysScrollToBottom = () => {
-  //   const elementRef = useRef();
-  //   useEffect(() => elementRef.current.scrollIntoView());
-  //   return <div ref={elementRef} />;
-  // };
 
   render() {
     return (

@@ -1,10 +1,13 @@
+//react core
 import React from "react";
+//import css styling
 import "../../css/styles.css";
+//import ratingIcon
 import RatingIcon from "../star/RatingIcon";
+//import axios instance
 import AnsweredAssignmentsApi from "../../api/AnsweredAssignmentsApi";
 
-// They don't necessarily need to take props
-// This one also has an explicit return
+// StarRating component
 function StarRating({ answers }) {
   const [rating, setRating] = React.useState(0);
   const [hoverRating, setHoverRating] = React.useState(0);

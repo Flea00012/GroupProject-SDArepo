@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { GrSend } from "react-icons/gr";
 
 function CommentForm({ onSubmit, question }) {
   const [body, setBody] = useState("");
+=======
+//react core
+import React, { useState } from 'react';
+//react icon
+import { GrSend } from 'react-icons/gr';
+
+//CommentForm component
+function CommentForm({ onSubmit, question }) {
+  const [body, setBody] = useState('');
+>>>>>>> master
 
   return (
     <div className="">

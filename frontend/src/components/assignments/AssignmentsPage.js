@@ -1,15 +1,25 @@
+//react core
 import React, { useState, useEffect } from "react";
+//axios instance
 import AssignmentsApi from "../../api/AssignmentsApi";
+//datepicker component from react-datepicker
 import DatePicker from "react-datepicker";
+//datepicker styles
 import "react-datepicker/dist/react-datepicker.css";
+//image for banner
 import assignmentImg from "../../images/banner/banner-classassignments.png";
+//material UI icon and state styles
 import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
+//button from material UI
 import Button from "@material-ui/core/Button";
+//axios instance
 import CoursesApi from "../../api/CoursesApi";
+//react router-dom modules (link and useHistory)
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+//make styling from styles state
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -27,6 +37,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+//AssignmentPage component
 function AssignmentsPage({ match }) {
   const classes = useStyles();
   const [assignmentTitle, setAssignmentTitle] = useState("");
@@ -57,6 +69,7 @@ function AssignmentsPage({ match }) {
     getCourseById(match.params.courseId);
   }, []);
 
+  //handles the assignment submission
   const handleSubmit = (e) => {
     let val1 = document.getElementById("title");
 

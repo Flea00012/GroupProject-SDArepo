@@ -1,29 +1,34 @@
-import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
-import ClearIcon from "@material-ui/icons/Clear";
+//react core
+import React, { useState } from 'react';
 
+//material UI Icons, button and styles state
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Icon from '@material-ui/core/Icon';
+import ClearIcon from '@material-ui/icons/Clear';
+
+//create style from styles state
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor: "#25274D",
-    color: "white",
-    cursor: "pointer",
-    textDecoration: "none",
+    backgroundColor: '#25274D',
+    color: 'white',
+    cursor: 'pointer',
+    textDecoration: 'none',
     borderRadius: 15,
-    boxShadow: [[0, 5, "#999"]],
-    "&:hover": {
-      backgroundColor: "#464866 !important",
+    boxShadow: [[0, 5, '#999']],
+    '&:hover': {
+      backgroundColor: '#464866 !important',
     },
-    "&:active": {
-      backgroundColor: "#3e8e41 !important",
-      boxShadow: [[0, 5, "#666"]],
-      transform: "translateY(4) !important",
+    '&:active': {
+      backgroundColor: '#3e8e41 !important',
+      boxShadow: [[0, 5, '#666']],
+      transform: 'translateY(4) !important',
     },
   },
 }));
 
+//CourseUpdateForm component
 export default function CourseUpdateForm({
   oldCourse,
   changeFormState,
@@ -36,7 +41,6 @@ export default function CourseUpdateForm({
   const classes = useStyles();
   const handleUpdateCourseClick = (e) => {
     const updatedCourse = { id, description, title, createDate };
-
     onCourseUpdate(updatedCourse);
     changeFormState(false);
   };

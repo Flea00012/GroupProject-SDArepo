@@ -1,5 +1,7 @@
+//base level Axios instance with BaseUrl
 import Api from "./Api";
 
+//class component with the Axios instance for answeredAssignments
 class AnsweredAssignmentsApi {
   getAssignmentAnswerByUserID(assignmentId, userId) {
     return Api.get("assignments/" + assignmentId + "/student/" + userId);

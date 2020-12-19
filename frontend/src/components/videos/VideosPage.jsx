@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Videos from "./Videos";
-import UserApi from "../../api/UserApi";
+//react core
+import React, { useState, useEffect } from 'react';
+//videos component
+import Videos from './Videos';
+//axios instance
+import UserApi from '../../api/UserApi';
 
+//VideosPage component
 export default function VideosPage({ course, currentUsers }) {
   const [currentUser, setCurrentUser] = useState([]);
   const getUserRole = () => {

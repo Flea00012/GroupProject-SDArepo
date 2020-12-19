@@ -1,6 +1,9 @@
-import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
+//react core
+import React from 'react';
+//material UI icon
+import DeleteIcon from '@material-ui/icons/Delete';
 
+//CommentCard component
 export default function CommentCard({ comment, handleDelete, user }) {
   return (
     <div>

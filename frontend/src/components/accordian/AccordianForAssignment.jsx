@@ -1,29 +1,32 @@
-import React from "react";
+//react core
+import React from 'react';
+//material UI components, state styles, and Icons
+import { makeStyles } from '@material-ui/core/styles';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import { makeStyles } from "@material-ui/core/styles";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
+//make a style from the material UI state style
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
-    color: "#29648A",
-    borderStyle: "solid",
+    width: '100%',
+    color: '#29648A',
+    borderStyle: 'solid',
   },
   heading: {
     fontSize: theme.typography.pxToRem(17),
     fontWeight: theme.typography.fontWeightRegular,
-    color: "#25274D",
+    color: '#25274D',
   },
   summary: {
-    backgroundColor: "#29648A",
-    color: "white",
+    backgroundColor: '#29648A',
+    color: 'white',
   },
 }));
 
+//display assignments using an accordian style layout
 function AccordianForAssignment({ questions, answers }) {
   const {
     id,

@@ -1,6 +1,8 @@
-import React from "react";
-import StarIcon from "../star/StarIcon";
-
+//react core
+import React from 'react';
+//import star icon for grading
+import StarIcon from '../star/StarIcon';
+//ratingIcon component
 export default function RatingIcon(props) {
   const {
     index,
@@ -13,11 +15,11 @@ export default function RatingIcon(props) {
   } = props;
   const fill = React.useMemo(() => {
     if (hoverRating >= index) {
-      return "#25274D";
+      return '#25274D';
     } else if (!hoverRating && rating >= index) {
-      return "#25274D";
+      return '#25274D';
     }
-    return "none";
+    return 'none';
   }, [rating, hoverRating, index]);
   return (
     <div

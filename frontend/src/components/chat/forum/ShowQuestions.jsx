@@ -1,16 +1,24 @@
-import React, { useState, useEffect } from "react";
-import QuestionsApi from "../../../api/QuestionsApi";
-import UserApi from "../../../api/UserApi";
-import CommentsApi from "../../../api/CommentsApi";
-import CommentForm from "./CommentForm";
-import ShowComments from "./ShowComments";
-import { RiQuestionAnswerLine } from "react-icons/ri";
-import DeleteIcon from "@material-ui/icons/Delete";
+//react core
+import React, { useState, useEffect } from 'react';
+//axios instance
+import QuestionsApi from '../../../api/QuestionsApi';
+//axios instance
+import UserApi from '../../../api/UserApi';
+//axios instance
+import CommentsApi from '../../../api/CommentsApi';
+// CommentForm component
+import CommentForm from './CommentForm';
+//showComments component
+import ShowComments from './ShowComments';
+//react Icons
+import { RiQuestionAnswerLine } from 'react-icons/ri';
+//material UI icons
+import DeleteIcon from '@material-ui/icons/Delete';
 
-//Function
+//ShowQuestions component
 function ShowQuestions({ question }) {
   const [formState, setFormState] = useState(false);
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState('');
   const [comments, setComments] = useState([]);
 
   //Delete method

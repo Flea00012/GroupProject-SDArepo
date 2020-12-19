@@ -1,6 +1,8 @@
-import React from "react";
-import Course from "./Course";
-
+//react corse
+import React from 'react';
+//Course component
+import Course from './Course';
+//CoursesList component
 function CoursesList({ courses, onCourseDelete, onCourseUpdate, currentUser }) {
   return (
     <div className="course-grid">

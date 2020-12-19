@@ -1,46 +1,50 @@
-import React, { useState } from "react";
-import "../../css/styles.css";
+//react core
+import React, { useState } from 'react';
+//css styles
+import '../../css/styles.css';
 
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
-import ClearIcon from "@material-ui/icons/Clear";
+//material UI icons and styles states
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Icon from '@material-ui/core/Icon';
+import ClearIcon from '@material-ui/icons/Clear';
 
+//make state from material UI state
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor: "#25274D",
-    color: "white",
-    cursor: "pointer",
-    textDecoration: "none",
+    backgroundColor: '#25274D',
+    color: 'white',
+    cursor: 'pointer',
+    textDecoration: 'none',
     borderRadius: 15,
-    boxShadow: [[0, 5, "#999"]],
-    "&:hover": {
-      backgroundColor: "#464866 !important",
+    boxShadow: [[0, 5, '#999']],
+    '&:hover': {
+      backgroundColor: '#464866 !important',
     },
-    "&:active": {
-      backgroundColor: "#3e8e41 !important",
-      boxShadow: [[0, 5, "#666"]],
-      transform: "translateY(4) !important",
+    '&:active': {
+      backgroundColor: '#3e8e41 !important',
+      boxShadow: [[0, 5, '#666']],
+      transform: 'translateY(4) !important',
     },
   },
 }));
 
+//CourseForm component
 function CourseForm({ onSubmit, onCancel }) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [show, setShow] = useState(false);
+  console.log('course form');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+ 
   const classes = useStyles();
 
   const onCreateCourseClick = (e) => {
     const courseData = { title, description };
     onSubmit(courseData).catch((err) => {
-      alert("error occured");
+      alert('error occured');
     });
   };
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return (
     <div className="course-create-form">

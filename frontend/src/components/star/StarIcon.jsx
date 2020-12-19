@@ -1,7 +1,8 @@
-import React from "react";
-
+//react core
+import React from 'react';
+//StarIcon component
 export default function StarIcon(props) {
-  const { fill = "none" } = props;
+  const { fill = 'none' } = props;
   return (
     <svg
       class="w-6 h-6"

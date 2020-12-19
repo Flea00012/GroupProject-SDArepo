@@ -1,11 +1,15 @@
 // React core
-import React, { useState } from "react";
-import { useEffect } from "react";
-import AnsweredAssignmentsApi from "../../api/AnsweredAssignmentsApi";
-import StarIcon from "@material-ui/icons/Star";
+import React, { useState } from 'react';
+//react hook for useEffect
+import { useEffect } from 'react';
+//axios instance
+import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi';
+//material UI icon
+import StarIcon from '@material-ui/icons/Star';
 
+//AssignmentGrade component with stars for student rating
 export default function AssignmentGrade({ assignmentId, userId }) {
-  const [grade, setGrade] = useState("");
+  const [grade, setGrade] = useState('');
 
   const getGrade = () => {
     var ratingArray = new Array(0);
@@ -15,7 +19,7 @@ export default function AssignmentGrade({ assignmentId, userId }) {
     ).then((response) => {
       if (response.data.rating != null) {
         ratingArray = new Array(response.data.rating).fill(
-          <StarIcon style={{ color: "#25274D" }} />
+          <StarIcon style={{ color: '#25274D' }} />
         );
       }
       setGrade(ratingArray);
@@ -23,7 +27,7 @@ export default function AssignmentGrade({ assignmentId, userId }) {
   };
 
   const repeatStringNumTimes = (times) => {
-    var repeatedString = "";
+    var repeatedString = '';
     while (times > 0) {
       repeatedString += <i class="far fa-star"></i>;
       times--;

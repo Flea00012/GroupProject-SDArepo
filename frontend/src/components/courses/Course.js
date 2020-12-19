@@ -1,17 +1,25 @@
-// React course page
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
-import { RiDeleteBin7Line, RiEdit2Line } from "react-icons/ri";
+//react core
+import React, { useState } from 'react';
+//font awesome imports
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { RiDeleteBin7Line, RiEdit2Line } from 'react-icons/ri';
+//material UI icon
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import { Link } from "react-router-dom";
-import courseImg from "../../images/Icons/coursebook.png";
+//react router-dom module
+import { Link } from 'react-router-dom';
+//image import
+import courseImg from '../../images/Icons/coursebook.png';
 //import courseImg from '../../images/Icons/courses-icon.png';
-import CourseUpdateForm from "./CourseUpdateForm.js";
-import CourseForm from "./CourseForm.js";
-import { Tooltip } from "@material-ui/core";
-import "../../css/styles.css";
+import CourseUpdateForm from './CourseUpdateForm.js';
+
+import CourseForm from './CourseForm.js';
+
+import { Tooltip } from '@material-ui/core';
+import '../../css/styles.css';
+
+// React course page component
 export default function Course({
   course,
   onCourseDelete,

@@ -1,18 +1,22 @@
+//react core
 import React, { useState } from "react";
 import "../../css/styles.css";
 import book from "../../images/undraw_education_f8ru.svg";
 import history from "../../images/undraw_voice_interface_eckp.svg";
 
+//loginform component
 function LoginForm({ onSubmit, onRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [userRole, setUserRole] = useState("");
 
+  //changeModeAdd component
   function changeModeAdd() {
     const container = document.querySelector(".login-container");
     container.classList.add("sign-up-mode");
   }
+  //changeModeRemove compnent
   function changeModeRemove() {
     const container1 = document.querySelector(".login-container");
     container1.classList.remove("sign-up-mode");

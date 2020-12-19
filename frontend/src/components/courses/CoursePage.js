@@ -1,40 +1,47 @@
-import React, { useState, useEffect } from "react";
-import CourseForm from "./CourseForm";
-import CoursesApi from "../../api/CoursesApi";
-import CoursesList from "./CoursesList";
+//react corse
+import React, { useState, useEffect } from 'react';
+//courseForm component
+import CourseForm from './CourseForm';
+//axios instance
+import CoursesApi from '../../api/CoursesApi';
+//courseList component
+import CoursesList from './CoursesList';
 
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
+//material UI button, icon and styles state
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Icon from '@material-ui/core/Icon';
 
-import UserApi from "../../api/UserApi";
+import UserApi from '../../api/UserApi';
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    backgroundColor: "#25274D",
-    color: "white",
-    cursor: "pointer",
-    textDecoration: "none",
+    //margin: theme.spacing(1),
+    backgroundColor: '#25274D',
+    color: 'white',
+    cursor: 'pointer',
+    textDecoration: 'none',
     borderRadius: 15,
-    boxShadow: [[0, 5, "#999"]],
-    "&:hover": {
-      backgroundColor: "#464866 !important",
+    boxShadow: [[0, 5, '#999']],
+    '&:hover': {
+      backgroundColor: '#464866 !important',
     },
-    "&:active": {
-      backgroundColor: "#3e8e41 !important",
-      boxShadow: [[0, 5, "#666"]],
-      transform: "translateY(4) !important",
+    '&:active': {
+      backgroundColor: '#3e8e41 !important',
+      boxShadow: [[0, 5, '#666']],
+      transform: 'translateY(4) !important',
     },
   },
 }));
 
+//CoursePage component
 function CoursePage() {
   const [courses, setCourses] = useState([]);
   const [openForm, setOpenForm] = useState(false);
 
   //useState variables
   const classes = useStyles();
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState('');
 
   const getAll = () => {
     CoursesApi.getAllCourses().then((res) => {
@@ -82,15 +89,18 @@ function CoursePage() {
     <div>
       <div className="course-banner">Courses</div>
       <hr />
+      {/*  <div className="horizontalline">
+             </div> */}
 
       <div className="row-buttons">
         {openForm ? (
           <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} />
         ) : (
           <>
-            {currentUser === "teacher" ? (
+            {currentUser === 'teacher' ? (
               <Button
                 className={classes.button}
+                // className="create-coursebutton"
                 endIcon={<Icon>send</Icon>}
                 onClick={onCreateNewCourse}
               >

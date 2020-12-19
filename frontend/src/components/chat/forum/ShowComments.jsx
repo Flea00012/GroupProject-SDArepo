@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
-import CommentCard from "./CommentCard";
-import Api from "../../../api/Api";
+//react core
+import React, { useState, useEffect } from 'react';
+//CommentCard component
+import CommentCard from './CommentCard';
+//axios instance
+import Api from '../../../api/Api';
 
+//showComments Component
 function ShowComments({ question, user }) {
   const [comments, setComments] = useState([]);
 
@@ -12,7 +16,7 @@ function ShowComments({ question, user }) {
   };
 
   const deleteComment = (comment) => {
-    Api.delete("/comments/" + comment.id).then((r) => getAllByQuestion());
+    Api.delete('/comments/' + comment.id).then((r) => getAllByQuestion());
   };
 
   useEffect(() => {

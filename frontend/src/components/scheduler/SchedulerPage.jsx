@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
-
-import Scheduler from "./Scheduler";
-import UserApi from "../../api/UserApi";
+//react core
+import React, { useState, useEffect } from 'react';
+//import calendar object into page
+import Scheduler from './Scheduler';
+//import axios instance
+import UserApi from '../../api/UserApi';
 
 export default function SchedulerPage() {
   const [currentUser, setCurrentUser] = useState([]);

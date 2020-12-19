@@ -1,5 +1,7 @@
+//react core
 import React from "react";
 
+//react material UI components
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { makeStyles } from "@material-ui/core/styles";
@@ -8,10 +10,13 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
+//material UI icons
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 
-import "../../css/styles.css";
-import { spacing } from "@material-ui/system";
+//css styling
+import '../../css/styles.css';
+
+//material UI state from makeStyles
 const useStyles = makeStyles({
   root: {
     textAlign: "center",
@@ -32,6 +37,7 @@ const useStyles = makeStyles({
   cardLectures: {},
 });
 
+//VideoCard component
 export default function VideoCard({ video, onDeleteClick, currentUser }) {
   const classes = useStyles();
 
