@@ -1,7 +1,9 @@
 //react core
-import React ,{ useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+//react router-dom module
+import { Link } from "react-router-dom";
 //css styles
-import '../../App.css';
+import "../../App.css";
 //Api import
 import UserApi from "../../api/UserApi";
 
@@ -9,22 +11,22 @@ import UserApi from "../../api/UserApi";
 export default function Navbar({ onLogout }) {
   const [currentUser, setCurrentUser] = useState("");
   const navSlide = () => {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".nav-links");
+    const navLinks = document.querySelectorAll(".nav-links li");
 
-    nav.classList.toggle('nav-active');
+    nav.classList.toggle("nav-active");
     navLinks.forEach((link, index) => {
-      console.log('I am listening');
+      console.log("I am listening");
       if (link.style.animation) {
-        link.style.animation = '';
+        link.style.animation = "";
       } else {
         link.style.animation = `navLinkFade 0.5s ease forwards ${index / 15}s`;
       }
     });
 
     //Burger Animation
-    burger.classList.toggle('BurgToggle');
+    burger.classList.toggle("BurgToggle");
   };
 
   const getUserRole = () => {
@@ -45,51 +47,56 @@ export default function Navbar({ onLogout }) {
         </div>
         <ul class="nav-links">
           <li>
-            <a href="/" class="target">
+            <Link to={`/`} className="target">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/courses" class="target">
+            <Link to={`/courses`} className="target">
               Courses
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/scheduler" class="target">
+            <Link to={`/scheduler`} className="target">
               Scheduler
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/assignments" class="target">
+            <Link to={`/assignments`} className="target">
               Assignments
-            </a>
+            </Link>
           </li>
-          {currentUser.userRole === "teacher" ?
-          <li>
-            <a href="/sentiment" class="target">
-              Sentiment
-            </a>
-          </li> : null}
+          {currentUser.userRole === "teacher" ? (
+            <li>
+              <Link to={`/sentiment`} className="target">
+                Sentiment
+              </Link>
+            </li>
+          ) : null}
 
           <li>
-            <a href="/videos" class="target">
+            <Link to={`/videos`} className="target">
               Lectures
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/chat" class="target">
+            <Link to={`/chat`} className="target">
               Chat
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/resources" class="target">
+            <Link to={`/resources`} className="target">
               Resources
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="logout-button" class="target" onClick={onLogout}>
+            <Link
+              to={`/resources`}
+              className="logout-button"
+              onClick={onLogout}
+            >
               Logout
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="burger" onClick={navSlide}>
