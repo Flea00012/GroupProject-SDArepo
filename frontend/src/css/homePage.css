@@ -1,251 +1,245 @@
-.home-banner{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    text-align: center;
-    margin-top: -25px;
-    margin-bottom: 45px;
-    margin-left: -50px;
-    margin-right: -50px;
-    background-color: var(--banner-blue);
-    font-size: medium;
-    border-radius: 5px;
+.home-banner {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  margin-top: -25px;
+  margin-bottom: 45px;
+  margin-left: -50px;
+  margin-right: -50px;
+  background-color: var(--banner-blue);
+  font-size: medium;
+  border-radius: 5px;
 }
 
-
-
+.materialUI {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow: hidden;
+  padding: 50px;
+}
 
 /* Float columns side by side */
 .column {
   float: left;
-    width: 14.28%;
+  width: 14.28%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+  margin: -25px -95px 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card-nav1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+
+  padding: 16px;
+  padding-top: 35px;
+  text-align: center;
+  background-color: #464866;
+  font-size: medium;
+  border-radius: 5px;
+  width: auto;
+  height: 163px;
+}
+.card-nav1:hover {
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+.card-nav2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  padding-top: 20px;
+  text-align: center;
+  background-color: #29648a;
+  font-size: medium;
+  border-radius: 5px;
+  width: auto;
+  height: 163px;
+}
+
+.card-nav2:hover {
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+.card-nav3 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  padding-top: 42px;
+  text-align: center;
+  background-color: #2e9cca;
+  font-size: medium;
+  border-radius: 5px;
+  width: auto;
+  height: 163px;
+}
+
+.card-nav3:hover {
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+.card-nav4 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  padding-top: 34px;
+  text-align: center;
+  background-color: #464866;
+  font-size: medium;
+  border-radius: 5px;
+  width: auto;
+  height: 163px;
+}
+
+.card-nav4:hover {
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+.card-nav5 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  padding-top: 25px;
+  text-align: center;
+  background-color: #29648a;
+  font-size: medium;
+  border-radius: 5px;
+  width: auto;
+  height: 163px;
+}
+.card-nav5:hover {
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+.card-nav6 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #2e9cca;
+  font-size: medium;
+  border-radius: 5px;
+  width: auto;
+  height: 163px;
+}
+.card-nav6:hover {
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+.card-nav7 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  padding-top: 22px;
+  text-align: center;
+  background-color: #464866;
+  font-size: medium;
+  border-radius: 5px;
+  width: auto;
+  height: 163px;
+}
+.card-nav7:hover {
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+.nav-card:link {
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.nav-card:visited {
+  color: #fff;
+}
+.nav-card:hover {
+  color: #fff;
+}
+.nav-card:active {
+  color: #fff;
+}
+
+.home-column {
+  display: flex;
+}
+
+.homepage {
+  margin-top: 36px;
+  padding-right: 20px;
+  padding-left: 10px;
+  flex: 40%;
+  height: 300px;
+  text-align: justify;
+}
+
+.happKids {
+  margin-top: 20px;
+  flex: 100%;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.NavImage-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.description-title {
+  text-align: left;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+
+@media (max-width: 950px) {
+  .column {
+    display: inline;
+    float: left;
+    width: 20%;
     padding: 0 10px;
+    margin-bottom: 20px;
   }
-  
-  /* Remove extra left and right margins, due to padding in columns */
-  .row {margin: -25px -95px 20px;}
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Style the counter cards */
-  .card-nav1{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    
-    padding: 16px;
-    padding-top: 35px;
-    text-align: center;
-    background-color: #464866;
-    font-size: medium;
-    border-radius: 5px;
-    width:auto;
-    height:163px;
-  }
-  .card-nav1:hover {
-      margin-top: 5px;
-      margin-bottom: -10px;
-  }
-  .card-nav2{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    padding-top: 20px;
-    text-align: center;
-    background-color: #29648A;
-    font-size: medium;
-    border-radius: 5px;
-    width:auto;
-    height:163px;
-  }
-
-  .card-nav2:hover {
-    margin-top: 5px;
-    margin-bottom: -10px;
 }
 
-  .card-nav3{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    padding-top: 42px;
-    text-align: center;
-    background-color: #2E9CCA;
-    font-size: medium;
-    border-radius: 5px;
-    width:auto;
-    height:163px;
+@media (max-width: 750px) {
+  .column {
+    display: inline;
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    margin-bottom: 20px;
   }
-  
-  .card-nav3:hover {
-    margin-top: 5px;
-    margin-bottom: -10px;
-}
-  
-  .card-nav4{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    padding-top: 34px;
-    text-align: center;
-    background-color: #464866;
-    font-size: medium;
-    border-radius: 5px;
-    width:auto;
-    height:163px;
-  }
-
-
-  .card-nav4:hover {
-    margin-top: 5px;
-    margin-bottom: -10px;
 }
 
-  .card-nav5{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    padding-top: 25px;
-    text-align: center;
-    background-color: #29648A;
-    font-size: medium;
-    border-radius: 5px;
-    width:auto;
-    height:163px;
+@media screen and (max-width: 600px) {
+  .column {
+    display: inline;
+    width: 25%;
+    margin-bottom: 20px;
+    margin-left: 120px;
   }
-  .card-nav5:hover {
-    margin-top: 5px;
-    margin-bottom: -10px;
-}
-  .card-nav6{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    text-align: center;
-    background-color: #2E9CCA;;
-    font-size: medium;
-    border-radius: 5px;
-    width:auto;
-    height:163px;
-  }
-  .card-nav6:hover {
-    margin-top: 5px;
-    margin-bottom: -10px;
-}
-  .card-nav7{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    padding-top: 22px;
-    text-align: center;
-    background-color: #464866;
-    font-size: medium;
-    border-radius: 5px;
-    width:auto;
-     height:163px;
-  }
-  .card-nav7:hover {
-    margin-top: 5px;
-    margin-bottom: -10px;
-}
-  
-  
-  .nav-card:link {
-    color: #fff;
-    font-size: 1.6rem;
-    line-height: 1.6rem;
-    text-decoration: none;
-    border-radius: 5px;
-    
-  }
-  .nav-card:visited {
-    color: #fff;
-  }
-  .nav-card:hover {
-    color: #fff;
-  }
-  .nav-card:active {
-    color: #fff;
-  }
- 
-  .home-column{
-    display: flex;
-  }
-
-  .homepage{
-    margin-top: 36px;
-    padding-right: 20px;
-    padding-left: 10px;
-    flex: 40%;
-    height: 300px;
-    text-align:justify;
-  }
-
-  .happKids{
-    margin-top: 40px;
-    flex: 60%;
-    width:400px;
-    height: auto;
-    margin-bottom: 40px;
-  }
-
-  .NavImage-responsive{
-    width:100%;
-    height: auto;
-  }
-
-  .description-title{
-    text-align: left;
-  }
-    
-  
-
-  
-
-
-    
-  
-  /* Responsive columns - one column layout (vertical) on small screens */
-  
-    @media (max-width: 950px) {
-    .column {
-      display: inline;
-      float: left;
-      width: 20%;
-      padding: 0 10px;
-      margin-bottom: 20px;
-    }
-  }
-   
-
-
-  @media (max-width: 750px) {
-      .column {
-          display: inline;
-        float: left;
-        width: 25%;
-        padding: 0 10px;
-        margin-bottom: 20px;
-
-      }
-    }
-  
-  @media screen and (max-width: 600px) {
-    .column {
-      display: inline;
-      width: 25%;
-      margin-bottom: 20px;
-      margin-left: 120px;
-    }
 }
 
 @media screen and (max-width: 420px) {
-    .column {
-        display: inline;
-        width: 40%;
-        padding-left: 100px;
-      margin-bottom: 20px;
-      margin-left: 180px;
-    }
-    .NavImage-responsive{
-    width:100%;
+  .column {
+    display: inline;
+    width: 40%;
+    padding-left: 100px;
+    margin-bottom: 20px;
+    margin-left: 180px;
+  }
+  .NavImage-responsive {
+    width: 100%;
     height: auto;
   }
-    
 }
