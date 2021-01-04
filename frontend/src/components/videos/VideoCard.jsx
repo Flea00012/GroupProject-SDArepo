@@ -1,6 +1,9 @@
 //react core
 import React from "react";
 
+//react router-dom module
+import { Link } from "react-router-dom";
+
 //react material UI components
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -46,7 +49,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
     <Card className={classes.root}>
       <CardActionArea>
         <IconButton>
-          <a href={video.videoUrl} target="_blank" rel="noopener noreferrer">
+          <Link to={video.videoUrl} target="_blank" rel="noopener noreferrer">
             <PlayCircleFilledIcon
               style={{
                 height: "50%",
@@ -54,7 +57,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
                 color: "#ecedfc",
               }}
             />
-          </a>
+          </Link>
         </IconButton>
 
         <CardContent className={classes.videocontent}></CardContent>

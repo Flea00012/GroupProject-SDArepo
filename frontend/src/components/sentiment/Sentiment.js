@@ -1,10 +1,10 @@
-
-//react core 
+//react core
 import React, { useState, useEffect } from "react";
 //axios API instance
 import QuestionsApi from "../../api/QuestionsApi";
 //rechart plot object
 import ScatterPlot from "../chartplots/ScatterPlot";
+
 
 //training data for NLP model
 const TrainingSet = require("../../resources/trainingdata.json");
@@ -71,8 +71,8 @@ export default function Sentiment() {
   });
 
   return (
-    <>
+    <div>
       <ScatterPlot data={questionBody} />
-    </>
+    </div>
   );
 }
