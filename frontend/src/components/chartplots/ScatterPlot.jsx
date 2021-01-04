@@ -1,5 +1,5 @@
 //react core
-import React from 'react';
+import React from "react";
 //import rechart and components
 import {
   AreaChart,
@@ -10,7 +10,7 @@ import {
   Tooltip,
   Label,
   ResponsiveContainer,
-} from 'recharts';
+} from "recharts";
 
 //ScatterPlot component
 export default function ScatterPlot({ data }) {
@@ -20,7 +20,7 @@ export default function ScatterPlot({ data }) {
         width={800}
         height={600}
         data={data}
-        margin={{ top: 20, right: 30, left: 0, bottom: 0 }}
+        margin={{ top: 15, right: 30, left: 15, bottom: 15 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis domain={[0, 100]}>

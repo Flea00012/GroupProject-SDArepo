@@ -1,7 +1,7 @@
 //react core imports
-import React from 'react';
+import React from "react";
 //NLP algorithm import
-import Sentiment from './Sentiment';
+import Sentiment from "./Sentiment";
 
 export default function SentimentPage() {
   return (
@@ -9,7 +9,13 @@ export default function SentimentPage() {
       <div className="card">
         <div className="student-banner">Question Sentiment</div>
 
-        <div style={{ textAlign: 'center', marginTop: '25px' }}>
+        <div
+          style={{
+            justifyItems: "center",
+            marginTop: "15px",
+            width: "100%",
+          }}
+        >
           <Sentiment />
         </div>
       </div>
