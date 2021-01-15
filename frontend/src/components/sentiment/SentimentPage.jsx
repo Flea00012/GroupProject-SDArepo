@@ -3,21 +3,17 @@ import React from "react";
 //NLP algorithm import
 import Sentiment from "./Sentiment";
 
+const mystyle = {
+  padding: "10px",
+  width: "100%",
+  height: "auto",
+};
+
 export default function SentimentPage() {
   return (
     <>
-      <div className="card">
-        <div className="student-banner">Question Sentiment</div>
-
-        <div
-          style={{
-            justifyItems: "center",
-            marginTop: "15px",
-            width: "100%",
-          }}
-        >
-          <Sentiment />
-        </div>
+      <div style={mystyle}>
+        <Sentiment />
       </div>
     </>
   );
